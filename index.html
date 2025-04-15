@@ -1,0 +1,79 @@
+<!DOCTYPE html><html lang="en"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Codex Official Tech Suggestion Website</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer="" src="script.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Codex Official Tech</h1>
+        <div id="clock"></div>
+    </header>
+
+    <nav>
+        <a href="https://www.github.com/Coded-bot-code">Repositories</a>
+        <a href="https://whatsapp.com/channel/0029Vb6SHBgAe5VkDNntUR1W">WhatsApp Channel</a>
+    </nav>    
+
+    <div class="container">
+        <h2>Create a Suggestion</h2>
+        <label>Your Name:</label>
+        <input type="text" id="name" placeholder="Enter your Best Nickname">
+
+        <label>Email Address:</label>
+        <input type="email" id="email" placeholder="Enter your email">
+
+        <label>Select Bot:</label>
+        <select id="bot">
+            <option>Tech Video Edits</option>
+            <option>Tech HD & 4k Images</option>
+            <option>Tech News & Updates</option>
+            <option>Tech Resources Sharing</option>
+            <option>Tech Suggestions via Developer</option>
+        </select>
+
+        <button onclick="proceedToConfirmation()">Proceed</button>
+    </div>
+
+    <footer>Regards, Codex Official Tech</footer>
+
+
+
+<script>
+// Real-Time Clock
+function updateClock() {
+    const now = new Date();
+    document.getElementById('clock').innerText = now.toLocaleTimeString();
+}
+setInterval(updateClock, 1000);
+updateClock();
+
+// Proceed to Confirmation Page
+function proceedToConfirmation() {
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const bot = document.getElementById("bot").value;
+
+    if (!name || !email) {
+        alert("Please fill all fields.");
+        return;
+    }
+
+    localStorage.setItem("name", number);
+    localStorage.setItem("email", email);
+    localStorage.setItem("bot", bot);
+
+    window.location.href = "confirmation.html";
+}
+
+// Display Order Details on Confirmation Page
+if (window.location.pathname.includes("confirmation.html")) {
+    document.getElementById("orderDetails").innerHTML = `
+        <p>Bot: <strong>${localStorage.getItem("bot")}</strong></p>
+        <p>WhatsApp: <strong>${localStorage.getItem("name")}</strong></p>
+        <p>Email: <strong>${localStorage.getItem("email")}</strong></p>
+    `;
+}
+    </script>
+</body></html>
