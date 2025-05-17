@@ -1,0 +1,251 @@
+:root {
+            --primary: #00ff00;
+            --secondary: #00f7ff;
+            --accent: #ff00ff;
+            --dark: #111;
+            --darker: #0a0a0a;
+            --card-bg: rgba(10, 10, 30, 0.7);
+            --light: #e0e0e0;
+            --glow: 0 0 10px var(--primary), 0 0 20px var(--primary);
+            --secondary-glow: 0 0 10px var(--secondary), 0 0 20px var(--secondary);
+            --accent-glow: 0 0 10px var(--accent), 0 0 20px var(--accent);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: sans-serif;
+            text-align: center;
+        }
+
+        body {
+            background-color: var(--dark);
+            color: var(--light);
+            overflow-x: hidden;
+            line-height: 1.6;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(0, 255, 0, 0.05) 0%, transparent 20%),
+                radial-gradient(circle at 90% 80%, rgba(0, 247, 255, 0.05) 0%, transparent 20%);
+        }
+
+        /* Matrix rain background */
+        .matrix-rain {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.15;
+        }
+        
+        /* Cursor Trail */
+        .cursor-trail {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--primary);
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+            mix-blend-mode: screen;
+            z-index: 9999;
+            transition: width 0.2s, height 0.2s;
+        }
+
+        .cursor-trail::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: var(--secondary);
+            border-radius: 50%;
+            animation: pulse 1.5s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 1; }
+            100% { transform: scale(3); opacity: 0; }
+        }
+        
+
+.container {
+    padding: 20px;
+}
+
+label {
+    display: block;
+    margin-top: 10px;
+    font-size: 18px;
+}
+
+input, select {
+    width: 80%;
+    padding: 10px;
+    margin-top: 5px;
+    background-color: #222;
+    color: white;
+    border: 1px solid #00FFFF;
+    border-radius: 5px;
+}
+
+button {
+    background-color: #00FFFF;
+    color: black;
+    padding: 10px 20px;
+    margin-top: 15px;
+    border: none;
+    cursor: pointer;
+}
+
+footer {
+    background-color: #222;
+    padding: 15px;
+    font-size: 16px;
+}
+
+   /* Main content */
+      .hero {
+            text-align: center;                                  
+            position: relative;            
+            overflow: hidden;            
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;                  
+            transform: rotate(30deg);
+            animation: scan 6s linear infinite;
+            pointer-events: none;
+        }
+
+        .hero h1 {
+            font-size: 1.1rem;            
+            color: var(--primary);
+            text-shadow: var(--glow);
+            letter-spacing: 2px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .hero h1::after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--primary), transparent);
+            box-shadow: var(--glow);
+       }
+
+        /* Hacker effect for product titles */
+        .hacker-text {
+            position: relative;
+            display: inline-block;
+        }
+
+        .hacker-text::after {
+            content: attr(data-text);
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: #00ffff;
+            width: 0;
+            overflow: hidden;
+            white-space: nowrap;
+            animation: typing 3s steps(30, end) forwards;
+            text-shadow: var(--glow);
+        }
+
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+        
+        .section-title {
+            font-size: 1.5rem;
+            text-align: center;
+            margin: 3rem 0;
+            position: relative;           
+            left: 50%;
+            transform: translateX(-50%);
+            font-family: 'Courier New', monospace;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 75px;
+            width: 60%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            box-shadow: var(--glow);
+        }
+        
+        .follow-button {
+      display: inline-flex;
+      align-items: center;
+      background-color: #007BFF;
+      color: white;
+      padding: 10px 16px;
+      border: none;
+      border-radius: 30px;
+      box-shadow: 0 0 15px rgba(0, 123, 255, 0.7);
+      cursor: pointer;
+      font-size: 16px;
+      text-decoration: none;
+      transition: background-color 0.3s, transform 0.3s;
+    }
+
+    .follow-button:hover {
+      background-color: #0056b3;
+      transform: scale(1.05);
+    }
+
+    .follow-button img {
+      height: 20px;
+      width: 20px;
+      margin-right: 10px;
+    }
+    
+    .whatsapp-button {
+       display: inline-flex;
+      align-items: center;
+      background-color: #25D366;
+      color: white;
+      padding: 10px 16px;
+      border: none;
+      border-radius: 30px;
+      box-shadow: 0 0 15px #25D366;
+      cursor: pointer;
+      font-size: 16px;
+      text-decoration: none;
+      transition: background-color 0.3s, transform 0.3s;
+    }
+
+    .whatsapp-button:hover {
+      box-shadow: 0 0 30px #25D366;
+      transform: scale(1.05);
+    }
+
+    .whatsapp-button i {
+      font-size: 20px;
+    }
+    
+    .whatsapp-icon {
+  height: 24px;  /* Match icon height to button font size */
+  width: auto;
+  margin-right: 10px;
+}
+
+.codex {
+    color: white;
+    text-decoration: none;
+}
